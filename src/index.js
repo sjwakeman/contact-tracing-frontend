@@ -47,8 +47,13 @@ function createFormHandler(e) {
   // const individualInput = document.querySelector("#individuals").value
   // const individualId = parseInt(individualInput)
   // Combines the two lines above into one line of code.
-  const individualId = parseInt(document.querySelector("#individuals").value)
-  postFetch()
-}   
+  const individual_id = parseInt(document.querySelector("#individuals").value)
+  postFetch(nameInput, dateInput, categoryInput,locationInput, occurrenceInput, individual_id )
+}  
+
+function postFetch(name, date, category, location, occurrence,individual_id) {
+  console.log(name, date, category, location, occurrence,individual_id)
+}
+
 
 
