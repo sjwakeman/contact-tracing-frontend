@@ -18,21 +18,25 @@ function getContacts() {
         // remember our JSON data is a bit nested due to our serializer
         contacts.data.forEach(contact => {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-        const contactMarkup = `
-          <div data-id=${contact.id}>
-            <h3>${contact.attributes.name}</h3>
-            <p>${contact.attributes.date}</p>
-            <p>${contact.attributes.category}</p>
-            <p>${contact.attributes.location}</p>
-            <p>${contact.attributes.occurrence}</p>
-            <p>${contact.attributes.individual.name}</p>
-            <button data-id=${contact.id}>edit</button>
-          </div>
-          <br><br>`;
- 
-          document.querySelector('#contact-container').innerHTML += contactMarkup
+          render(contact)
         })
     }) 
+}
+
+function render(contact) {
+  const contactMarkup = `
+  <div data-id=${contact.id}>
+    <h3>${contact.attributes.name}</h3>
+    <p>${contact.attributes.date}</p>
+    <p>${contact.attributes.category}</p>
+    <p>${contact.attributes.location}</p>
+    <p>${contact.attributes.occurrence}</p>
+    <p>${contact.attributes.individual.name}</p>
+    <button data-id=${contact.id}>edit</button>
+  </div>
+  <br><br>`;
+  // Appending to contact-contatiner div in HTML file.
+  document.querySelector('#contact-container').innerHTML += contactMarkup
 }
 
 function createFormHandler(e) {
@@ -52,7 +56,36 @@ function createFormHandler(e) {
 }  
 
 function postFetch(name, date, category, location, occurrence,individual_id) {
-  console.log(name, date, category, location, occurrence,individual_id)
+// console.log(name, date, category, location, occurrence, individual_id) // WORKS
+  // Build bodyData Object outside of the fetch
+  let bodyData = {name, date, category, location, occurrence, individual_id}
+  fetch(endPoint, {
+    // Post Request
+    method: 'POST',
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(contact => {
+    // console.log(contact); // WORKS
+    // Render the data
+    // debugger // HITS
+    const contactData = contact.data
+    debugger
+    // Render json response
+    const contactMarkup = `
+    <div data-id=${contact.id}>
+    <h3>${contactData.attributes.name}</h3>
+    <p>${contactData.attributes.date}</p>
+    <p>${contactData.attributes.category}</p>
+    <p>${contactData.attributes.location}</p>
+    <p>${contactData.attributes.occurrence}</p>
+    <p>${contactData.attributes.individual.name}</p>
+    <button data-id=${contactData.id}>EDIT</button>
+  </div>
+  <br></br>`;
+  document.querySelector(`#contact-container`).innerHTML += contactMarkup
+  })
 }
 
 
