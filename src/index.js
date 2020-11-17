@@ -1,9 +1,15 @@
 const endPoint = "http://localhost:3000/api/v1/contacts";
  
 document.addEventListener('DOMContentLoaded', () => {
-    getContacts()
-});
- 
+  // Fetch and load contacts
+  getContacts()
+
+  // Event Handler and Listener for create contact form
+  const createContactForm = document.querySelector("#create-contact-form")
+  createContactForm.addEventListener("submit", (e) => {
+    createFormHandler(e) })
+}) 
+
 function getContacts() {
     fetch(endPoint)
     .then(res => res.json())
@@ -28,5 +34,21 @@ function getContacts() {
         })
     }) 
 }
+
+function createFormHandler(e) {
+  e.preventDefault() // WORKS
+  // debugger
+  // console.log(e); // WORKS
+  const nameInput = document.querySelector("#input-name").value
+  const dateInput = document.querySelector("#input-date").value
+  const categoryInput = document.querySelector("#input-category").value
+  const locationInput = document.querySelector("#input-location").value
+  const occurrenceInput = document.querySelector("#input-occurrence").value
+  // const individualInput = document.querySelector("#individuals").value
+  // const individualId = parseInt(individualInput)
+  // Combines the two lines above into one line of code.
+  const individualId = parseInt(document.querySelector("#individuals").value)
+  postFetch()
+}   
 
 
