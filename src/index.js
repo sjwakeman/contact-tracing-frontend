@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   getContacts()
 
   // Event Handler and Listener for create contact form
-  const createContactForm = document.querySelector("#create-contact-form")
+  let createContactForm = document.querySelector("#create-contact-form")
+  // const createContactForm = document.querySelector("#create-contact-form")
+  // const createContactForm = document.getElementById("#create-contact-form")
   createContactForm.addEventListener("submit", (e) => {
     createFormHandler(e) })
 }) 
@@ -24,6 +26,7 @@ function getContacts() {
 }
 
 function render(contact) {
+// double check how your data is nested in the console so you can successfully access the attributes of each individual object   
   const contactMarkup = `
   <div data-id=${contact.id}>
     <h3>${contact.attributes.name}</h3>
@@ -59,9 +62,10 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
 // console.log(name, date, category, location, occurrence, individual_id) // WORKS
   // Build bodyData Object outside of the fetch
   let bodyData = {name, date, category, location, occurrence, individual_id}
+  // console.log(bodyData) // WORKS individual name displays
   fetch(endPoint, {
     // Post Request
-    method: 'POST',
+    method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(bodyData)
   })
@@ -69,10 +73,9 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
   .then(contact => {
     // console.log(contact); // WORKS
     // Render the data
-    // debugger // HITS
+    // debugger // HITS WORKS
     const contactData = contact.data
-    debugger
-    // Render json response
+      // double check how your data is nested in the console so you can successfully access the attributes of each individual object    
     const contactMarkup = `
     <div data-id=${contact.id}>
     <h3>${contactData.attributes.name}</h3>
