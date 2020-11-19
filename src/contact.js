@@ -1,15 +1,16 @@
 // Create a file src/contact.js and link it to it from index.html
 class Contact {
-    constructor(data) {
+    constructor(contact, contactAttributes) {
     // constructor(id, contactAttributes) {
+        this.id = contact.id;   // Top level
+        this.name = contactAttributes.name;
+        this.date = contactAttributes.date;
+        this.category = contactAttributes.category;
+        this.location = contactAttributes.location;
+        this.occurrence = contactAttributes.occurrence;
+        this.individual = contactAttributes.individual
+        Contact.all.push(this);
         debugger
-        this.id = data.id;
-        // this.name = name;
-        // this.date = date;
-        // this.category = category;
-        // this.location = location;
-        // this.occurrence = occurrence;
-        // Contact.call.push(this);
     }
 
     // renderContactCard() {

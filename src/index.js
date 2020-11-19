@@ -18,13 +18,13 @@ function getContacts() {
     .then(contacts => {
  
         // remember our JSON data is a bit nested due to our serializer
-        contacts.data.forEach(contactData => {
-        debugger
+        contacts.data.forEach(contact => {
+        // debugger
         // create new instance of contact class to hit debugger in contac.js
-        let newContact = new Contact(contactData)
+        let newContact = new Contact(contact, contact.attributes)
         
           // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-          render(contactData)
+          render(contact)
         })
     }) 
 }
