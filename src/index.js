@@ -19,27 +19,15 @@ function getContacts() {
  
         // remember our JSON data is a bit nested due to our serializer
         contacts.data.forEach(contact => {
-        // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-          render(contact)
-        })
-    }) 
-}
+        // debugger
+        // create new instance of contact class to hit debugger in contac.js
+        let newContact = new Contact(contact, contact.attributes)
 
-function render(contact) {
-// double check how your data is nested in the console so you can successfully access the attributes of each individual object   
-  const contactMarkup = `
-  <div data-id=${contact.id}>
-    <h3>${contact.attributes.name}</h3>
-    <p>${contact.attributes.date}</p>
-    <p>${contact.attributes.category}</p>
-    <p>${contact.attributes.location}</p>
-    <p>${contact.attributes.occurrence}</p>
-    <p>${contact.attributes.individual.name}</p>
-    <button data-id=${contact.id}>edit</button>
-  </div>
-  <br><br>`;
-  // Appending to contact-contatiner div in HTML file.
-  document.querySelector('#contact-container').innerHTML += contactMarkup
+        // Update contact-container with return data
+        document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
+        newContact.renderContactCard()
+         })
+    }) 
 }
 
 function createFormHandler(e) {
@@ -71,23 +59,18 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
   })
   .then(response => response.json())
   .then(contact => {
-    // console.log(contact); // WORKS
+    console.log(contact); // WORKS
     // Render the data
     // debugger // HITS WORKS
     const contactData = contact.data
-      // double check how your data is nested in the console so you can successfully access the attributes of each individual object    
-    const contactMarkup = `
-    <div data-id=${contact.id}>
-    <h3>${contactData.attributes.name}</h3>
-    <p>${contactData.attributes.date}</p>
-    <p>${contactData.attributes.category}</p>
-    <p>${contactData.attributes.location}</p>
-    <p>${contactData.attributes.occurrence}</p>
-    <p>${contactData.attributes.individual.name}</p>
-    <button data-id=${contactData.id}>EDIT</button>
-  </div>
-  <br></br>`;
-  document.querySelector(`#contact-container`).innerHTML += contactMarkup
+    
+    // Render json response
+    // create new instance of contact class to hit debugger in contac.js
+    let newContact = new Contact(contactData, contactData.attributes)
+
+    // Update contact-container with return data
+    document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
+    newContact.renderContactCard()
   })
 }
 
