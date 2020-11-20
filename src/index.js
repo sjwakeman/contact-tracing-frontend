@@ -25,10 +25,8 @@ function getContacts() {
 
         // Update contact-container with return data
         document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
-        
-          // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-          // render(contact)
-        })
+        newContact.renderContactCard()
+         })
     }) 
 }
 
@@ -61,23 +59,18 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
   })
   .then(response => response.json())
   .then(contact => {
-    // console.log(contact); // WORKS
+    console.log(contact); // WORKS
     // Render the data
     // debugger // HITS WORKS
     const contactData = contact.data
-      // double check how your data is nested in the console so you can successfully access the attributes of each individual object    
-    const contactMarkup = `
-    <div data-id=${contact.id}>
-    <h3>${contactData.attributes.name}</h3>
-    <p>${contactData.attributes.date}</p>
-    <p>${contactData.attributes.category}</p>
-    <p>${contactData.attributes.location}</p>
-    <p>${contactData.attributes.occurrence}</p>
-    <p>${contactData.attributes.individual.name}</p>
-    <button data-id=${contactData.id}>EDIT</button>
-  </div>
-  <br></br>`;
-  document.querySelector(`#contact-container`).innerHTML += contactMarkup
+    
+    // Render json response
+    // create new instance of contact class to hit debugger in contac.js
+    let newContact = new Contact(contactData, contactData.attributes)
+
+    // Update contact-container with return data
+    document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
+    newContact.renderContactCard()
   })
 }
 

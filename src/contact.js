@@ -11,12 +11,12 @@ class Contact {
         this.individual = contactAttributes.individual
         // Push all instances of this into an empty array
         Contact.all.push(this);
-        debugger
+        // debugger
     }
     
     renderContactCard() {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
-        debugger  
+        // debugger  
         return `
           <div data-id=${this.id}>
             <h3>${this.name}</h3>
