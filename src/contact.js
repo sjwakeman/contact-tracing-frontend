@@ -28,8 +28,14 @@ class Contact {
             <button data-id=${this.id}>EDIT</button>
           </div>
           <br><br>`;
-         
     }
+
+    
+
+    // static findById(id) {
+    //   // console.log("Hitting static method"); // NOT HIT
+    //   return this.all.find(contact => contact.id === id);
+    // }
 }
 // Contact is an object we give a .all key and assign to an empty array
 Contact.all = []
