@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
 }) 
 
-function editContactHandler(e) {
-  // console.log('clicked'); //WORKS
-  debugger
-}
+// function editContactHandler(e) {
+//   // console.log('clicked'); //WORKS
+//   debugger
+// }
 
 function getContacts() {
     fetch(endPoint)
