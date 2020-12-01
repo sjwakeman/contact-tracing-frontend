@@ -30,12 +30,26 @@ class Contact {
           <br><br>`;
     }
 
-    
+    static findById(id) {
+      // console.log("Hitting static method"); // HIT
+      // console.log(id, "id 2") // CORRECT 1 "id 2" contact.js:35 
+      return this.all.find(contact => contact.id === id);
+    }
 
-    // static findById(id) {
-    //   // console.log("Hitting static method"); // NOT HIT
-    //   return this.all.find(contact => contact.id === id);
-    // }
+    renderUpdateContactCard() {
+      // return this.renderContactCard()
+      return `
+      <div data-id=${this.id}>
+      <h3>${this.name}</h3>
+      <p>${this.date}</p>
+      <p>${this.category}</p>
+      <p>${this.location}</p>
+      <p>${this.occurrence}</p>
+      <p>${this.individual.name}</p>
+      <button data-id=${this.id}>EDIT</button>
+    </div>
+    <br><br>`;
+    }
 }
 // Contact is an object we give a .all key and assign to an empty array
 Contact.all = []

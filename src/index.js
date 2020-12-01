@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   editContactHandler(e) })
 
   // Event Listener for EDIT button
-  let app = new App(); //index.js:20 Uncaught ReferenceError: App is not defined
+  let app = new App(); 
   app.attachEventListeners();
 
   
