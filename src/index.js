@@ -10,7 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // const createContactForm = document.getElementById("#create-contact-form")
   createContactForm.addEventListener("submit", (e) => {
     createFormHandler(e) })
+  
+  // Event Listener and Handler for edit contact WORKS
+  // let editContact = document.querySelector(`#contact-container`)
+  // editContact.addEventListener("click", (e) => {
+  //   editContactHandler(e) })
+
+  // Event Listener for EDIT button
+  let app = new App(); 
+  app.attachEventListeners();
+
+  
 }) 
+
+// function editContactHandler(e) {
+//   // console.log('clicked'); //WORKS
+//   debugger
+// }
 
 function getContacts() {
     fetch(endPoint)
@@ -72,6 +88,8 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
     document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
     newContact.renderContactCard()
   })
+
+
 }
 
 
