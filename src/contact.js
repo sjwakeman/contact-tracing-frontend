@@ -19,7 +19,7 @@ class Contact {
         // debugger  
         return `
           <div data-id=${this.id}>
-            <h3>${this.name}</h3>
+          <p><strong>${this.name}</strong></p>
             <p>${this.date}</p>
             <p>${this.category}</p>
             <p>${this.location}</p>
@@ -40,13 +40,13 @@ class Contact {
       // return this.renderContactCard()
       return `
       <div data-id=${this.id}>
-      <h3>${this.name}</h3>
+      <p><strong>${this.name}</strong></p>
       <p>${this.date}</p>
       <p>${this.category}</p>
       <p>${this.location}</p>
       <p>${this.occurrence}</p>
       <p>${this.individual.name}</p>
-      <button data-id=${this.id}>EDIT</button>
+      <button type="submit" data-id=${this.id}>Save Contact</button>
     </div>
     <br><br>`;
     }
