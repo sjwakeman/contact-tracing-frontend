@@ -3,6 +3,8 @@ class Contact {
     constructor(contact, contactAttributes) {
     // constructor(id, contactAttributes) {
         this.id = contact.id;   // Top level
+        // debugger
+        
         this.name = contactAttributes.name;
         this.date = contactAttributes.date;
         this.category = contactAttributes.category;
@@ -36,7 +38,7 @@ class Contact {
       return this.all.find(contact => contact.id === id);
     }
 
-    renderUpdateContactCard() {
+    updateContactCard() { // ONE renderUpdateContactCard
       // return this.renderContactCard()
       return `
       <div data-id=${this.id}>
