@@ -9,9 +9,10 @@ class Adapter {
     fetchContacts() {
         return fetch(`${this.baseUrl}/contacts`).then(res => res.json());
     }
-    updateContactCard(id, jsonBody) { // ONE renderUpdateContactCard
-        // debugger
-        return fetch(`${this.baseUrl}/contacts/${id}`, {
+    updateContactCard(id, jsonBody) { 
+        //  debugger
+        // return fetch(`${this.baseUrl}/contacts/${contact.id}`, { 
+        return fetch(`${this.baseUrl}/contacts/${id}`, {  // ORIGIANL
             method: "PATCH",
             headers:  {
                 'Content-Type': 'application/json',

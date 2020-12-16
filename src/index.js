@@ -67,23 +67,6 @@ function createFormHandler(e) {
   postFetch(nameInput, dateInput, categoryInput,locationInput, occurrenceInput, individual_id )
 }  
 
-// EDIT FORM HANDLER?
-// function editFormHandler(e) {
-//   e.preventDefault() // WORKS
-//   // debugger
-//   // console.log(e); // WORKS
-//   const nameInput = document.querySelector("#input-name").value
-//   const dateInput = document.querySelector("#input-date").value
-//   const categoryInput = document.querySelector("#input-category").value
-//   const locationInput = document.querySelector("#input-location").value
-//   const occurrenceInput = document.querySelector("#input-occurrence").value
-//   // const individualInput = document.querySelector("#individuals").value
-//   // const individualId = parseInt(individualInput)
-//   // Combines the two lines above into one line of code.
-//   const individual_id = parseInt(document.querySelector("#individuals").value)
-//   postFetch(nameInput, dateInput, categoryInput,locationInput, occurrenceInput, individual_id )
-// }  
-
 function postFetch(name, date, category, location, occurrence,individual_id) {
 // console.log(name, date, category, location, occurrence, individual_id) // WORKS
   // Build bodyData Object outside of the fetch
@@ -97,7 +80,7 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
   })
   .then(response => response.json())
   .then(contact => {
-    console.log(contact); // WORKS
+    // console.log(contact); // WORKS
     // Render the data
     // debugger // HITS WORKS
     const contactData = contact.data
@@ -110,9 +93,10 @@ function postFetch(name, date, category, location, occurrence,individual_id) {
     document.querySelector('#contact-container').innerHTML += newContact.renderContactCard()
     newContact.renderContactCard()
   })
+//   const individual_id = parseInt(document.querySelector("#individuals").value)
+  postFetch(name, date, category,location, occurrence, individual_id )
+}  
 
-
-}
 
 
 
