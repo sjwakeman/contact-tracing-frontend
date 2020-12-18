@@ -12,7 +12,7 @@ class Adapter {
     updateContactCard(id, jsonBody) { 
         //  debugger
         // return fetch(`${this.baseUrl}/contacts/${contact.id}`, { 
-        return fetch(`${this.baseUrl}/contacts/${id}`, {  // ORIGIANL
+        return fetch(`${this.baseUrl}/contacts/${id}`, {  // ORIGINAL
             method: "PATCH",
             headers:  {
                 'Content-Type': 'application/json',

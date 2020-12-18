@@ -11,7 +11,7 @@ class App {
     // debugger
         const contact = Contact.findById(id);
         // debugger
-// EDIT FUNCTIONALITY HERE
+        // EDIT FUNCTIONALITY HERE
         document.querySelector('#update').innerHTML = contact.updateContactCard(); 
     });
 
