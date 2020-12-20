@@ -1,7 +1,7 @@
 class Adapter {
     constructor() {
         this.baseUrl = "http://localhost:3000/api/v1";
-        this.headers = { // FUTURE REFACTOR ADDED
+        this.headers = { // FUTURE REFACTOR                                                // ADAPTER REFACTOR ADDED
             'Content-Type': 'application/json', // FUTURE REFACTOR                          // ADAPTER REFACTOR ADDED
             Accept: 'application/json' // FUTURE REFACTOR                                   // ADAPTER REFACTOR ADDED
         } // FUTURE REFACTOR ADDED

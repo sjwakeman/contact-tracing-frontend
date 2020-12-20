@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     const contactData = contact.data
     
 //     // Render json response
-//     // create new instance of contact class to hit debugger in contac.js
+//     // create new instance of contact class to hit debugger in contact.js
 //     let newContact = new Contact(contactData, contactData.attributes)
 
 //     // Update contact-container with return data
