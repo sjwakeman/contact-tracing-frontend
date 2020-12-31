@@ -65,23 +65,6 @@ class Contact {
       </form>
       `;
     }
-
-    // updateContactCard() { 
-    //   // return this.renderContactCard()
-    // debugger 
-    // // displays values of contact attributes below
-    //   return `
-    //   <div data-id=${this.id}>
-    //   <p><strong>${this.name}</strong></p>
-    //   <p>${this.date}</p>
-    //   <p>${this.category}</p>
-    //   <p>${this.location}</p>
-    //   <p>${this.occurrence}</p>
-    //   <p>${this.individual.name}</p>
-    //   <button type="submit" data-id=${this.id}>Save Contact</button>
-    // </div>
-    // <br><br>`;
-    // }
 }
 // Contact is an object we give a .all key and assign to an empty array
 Contact.all = []

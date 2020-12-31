@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Handler and Listener for create contact form
   // let createContactForm = document.querySelector("#create-contact-form")     // ADAPTER REFACTOR REMOVED
-  // const createContactForm = document.querySelector("#create-contact-form")
-  // const createContactForm = document.getElementById("#create-contact-form")
   // createContactForm.addEventListener("submit", (e) => {                         // ADAPTER REFACTOR REMOVED
   //   createFormHandler(e) })                                                     // ADAPTER REFACTOR REMOVED
 
