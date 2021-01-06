@@ -65,6 +65,19 @@ class Contact {
       </form>
       `;
     }
+
+    update({name, date, category, location, occurrence}) {  // ADDED UPDATE CONTACT
+      // this.name = name;                                     // ADDED UPDATE CONTACT
+      // this.date = date;                                     // ADDED UPDATE CONTACT
+      // this.category = category;                             // ADDED UPDATE CONTACT
+      // this.location = location;                             // ADDED UPDATE CONTACT
+      // this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
+      this.name = contactAttributes.name;                                     // ADDED UPDATE CONTACT
+      this.date = contactAttributes.date;                                     // ADDED UPDATE CONTACT
+      this.category = contactAttributes.category;                             // ADDED UPDATE CONTACT
+      this.location = contactAttributes.location;                             // ADDED UPDATE CONTACT
+      this.occurrence = contactAttributes.occurrence;                         // ADDED UPDATE CONTACT
+    }                                                       // ADDED UPDATE CONTACT
 }
 // Contact is an object we give a .all key and assign to an empty array
 Contact.all = []
