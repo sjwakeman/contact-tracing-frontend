@@ -17,7 +17,7 @@ class Adapter {
         return this.get(`${this.baseUrl}/contacts`);                                        // ADAPTER REFACTOR ADDED
     }
     updateContactCard(id, jsonBody) { 
-        //  debugger
+        debugger
         // return fetch(`${this.baseUrl}/contacts/${contact.id}`, { 
         // return fetch(`${this.baseUrl}/contacts/${id}`, {  // ORIGINAL                       // ADAPTER REFACTOR REMOVED
         //     method: "PATCH",                                                                // ADAPTER REFACTOR REMOVED
