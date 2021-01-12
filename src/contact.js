@@ -43,27 +43,40 @@ class Contact {
       <form data-id=${this.id}>
         <label>Name</label>
         <p>
-          <input type="text" value="${this.name}" />
+          <input id='update-name' type="text" value="${this.name}" />
         </p>
         <label>Date</label>
         <p>
-          <input type="text" value="${this.date}" />
+          <input id='update-date' type="text" value="${this.date}" />
         </p>
         <label>Category</label>
         <p>
-          <input type="text" value="${this.category}" />
+          <input id='update-category' type="text" value="${this.category}" />
         </p>
         <label>Location</label>
         <p>
-          <input type="text" value="${this.location}" />
+          <input id='update-location' type="text" value="${this.location}" />
         </p>
         <label>Occurrence</label>
         <p>
-          <input type="text" value="${this.occurrence}" />
+          <input id='update-occurrence' type="text" value="${this.occurrence}" />
+        </p>
+        <label>Individual Name</label>
+        <p>
+          <input id='update-individual' type="text" value="${this.individual.name}" />
         </p>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
+    }
+
+    update({name, date, category, location, occurrence}) {  // ADDED UPDATE CONTACT
+      // debugger
+      this.name = name;                                     // ADDED UPDATE CONTACT
+      this.date = date;                                     // ADDED UPDATE CONTACT
+      this.category = category;                             // ADDED UPDATE CONTACT
+      this.location = location;                             // ADDED UPDATE CONTACT
+      this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
     }
 }
 // Contact is an object we give a .all key and assign to an empty array
