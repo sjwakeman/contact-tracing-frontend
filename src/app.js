@@ -39,14 +39,14 @@ class App {
         // const location = contact.location; 
         // const occurrence = contact.occurrence;
         // const individual_name = contact.individual_id; 
-        debugger
+        // debugger
         // TARGET FORM VALUES
         const name = e.target.querySelector('#update-name').value;
         const date = e.target.querySelector('#update-date').value;
         const category = e.target.querySelector('#update-category').value;
         const location = e.target.querySelector('#update-location').value;
         const occurrence = e.target.querySelector('#update-occurrence').value;
-        // const individual_name = e.target.querySelector('#update-individual').value;
+        const individual_name = e.target.querySelector('#update-individual').value;
 
 
         const jsonBody = {name, date, category, location, occurrence};

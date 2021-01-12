@@ -61,6 +61,10 @@ class Contact {
         <p>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
         </p>
+        <label>Individual Name</label>
+        <p>
+          <input id='update-individual' type="text" value="${this.individual.name}" />
+        </p>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
