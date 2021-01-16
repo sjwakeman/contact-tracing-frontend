@@ -63,20 +63,32 @@ class Contact {
         </p>
         <label>Individual Name</label>
         <p>
-          <input id='update-individual' type="text" value="${this.individual.name}" />
+        <select id="individuals" />
+        <option value="1">individual one</option>
+        <option value="2">individual two</option>
+        <option value="3">individual three</option>
+      </select>
         </p>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
     }
 
-    update({name, date, category, location, occurrence}) {  // ADDED UPDATE CONTACT
+
+
+    // update({name, date, category, location, occurrence, individual.name}) {  // ADDED UPDATE CONTACT
+    update({name, date, category, location, occurrence, individual_name}) {  // ADDED UPDATE CONTACT
       // debugger
       this.name = name;                                     // ADDED UPDATE CONTACT
       this.date = date;                                     // ADDED UPDATE CONTACT
       this.category = category;                             // ADDED UPDATE CONTACT
       this.location = location;                             // ADDED UPDATE CONTACT
       this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
+      this.individual_name = individual_name; // NOT UPDATING INDIVIDUAL NAME
+      // this.individual_name = individual.name; // NOT UPDATING INDIVIDUAL NAME
+      // this.individual.name = individual.name; // NOT UPDATING INDIVIDUAL NAME
+      // this.individual.name = individual_name; // undefined
+      
     }
 }
 // Contact is an object we give a .all key and assign to an empty array

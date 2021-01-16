@@ -46,14 +46,11 @@ class App {
         const category = e.target.querySelector('#update-category').value;
         const location = e.target.querySelector('#update-location').value;
         const occurrence = e.target.querySelector('#update-occurrence').value;
-        const individual_name = e.target.querySelector('#update-individual').value;
-
-
-        const jsonBody = {name, date, category, location, occurrence};
-        // const jsonBody = {name, date, category, location, occurrence, individual_name};
+        const individual_id = e.target.querySelector('#individuals').value; 
+        const jsonBody = {name, date, category, location, occurrence, individual_id};
         // this.adapter.updateContactCard(id, jsonBody).then(updatedContact => console.log(updatedContact)); // REMOVED UPDATE CONTACT
         this.adapter.updateContactCard(id, jsonBody).then(updatedContact => {   // ADDED UPDATE CONTACT
-
+        debugger
             const contact = Contact.findById(updatedContact.data.id);                // ADDED UPDATE CONTACT
             // let contact = Contact.findById(updatedContact.id);               // ADDED UPDATE CONTACT
             // debugger
