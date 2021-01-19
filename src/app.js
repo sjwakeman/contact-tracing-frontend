@@ -20,8 +20,10 @@ class App {
     }
 
     addContacts() {
+        //! Is there another way to clear innerHTML? ```Node.querySelectorAll('*').forEach(n => n.remove());```
         document.querySelector('#contact-container').innerHTML = ``;
         Contact.all.forEach(
+            //! appendChild: https://www.w3schools.com/jsref/met_node_appendchild.asp
             contact => (document.querySelector(`#contact-container`).innerHTML += contact.renderContactCard())
         )
     }
@@ -50,7 +52,7 @@ class App {
         const jsonBody = {name, date, category, location, occurrence, individual_id};
         // this.adapter.updateContactCard(id, jsonBody).then(updatedContact => console.log(updatedContact)); // REMOVED UPDATE CONTACT
         this.adapter.updateContactCard(id, jsonBody).then(updatedContact => {   // ADDED UPDATE CONTACT
-        debugger
+        // debugger
             const contact = Contact.findById(updatedContact.data.id);                // ADDED UPDATE CONTACT
             // let contact = Contact.findById(updatedContact.id);               // ADDED UPDATE CONTACT
             // debugger

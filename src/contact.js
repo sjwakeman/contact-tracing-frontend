@@ -18,7 +18,8 @@ class Contact {
 
     renderContactCard() {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
-        // debugger  
+        debugger  
+        //! Use JS contact container append child
         return `
           <div data-id=${this.id}>
           <p><strong>${this.name}</strong></p>
@@ -74,9 +75,6 @@ class Contact {
       `;
     }
 
-
-
-    // update({name, date, category, location, occurrence, individual.name}) {  // ADDED UPDATE CONTACT
     update({name, date, category, location, occurrence, individual_name}) {  // ADDED UPDATE CONTACT
       // debugger
       this.name = name;                                     // ADDED UPDATE CONTACT
@@ -84,11 +82,7 @@ class Contact {
       this.category = category;                             // ADDED UPDATE CONTACT
       this.location = location;                             // ADDED UPDATE CONTACT
       this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
-      this.individual_name = individual_name; // NOT UPDATING INDIVIDUAL NAME
-      // this.individual_name = individual.name; // NOT UPDATING INDIVIDUAL NAME
-      // this.individual.name = individual.name; // NOT UPDATING INDIVIDUAL NAME
-      // this.individual.name = individual_name; // undefined
-      
+      this.individual_name = individual_name;               // UPDATING INDIVIDUAL NAME
     }
 }
 // Contact is an object we give a .all key and assign to an empty array
