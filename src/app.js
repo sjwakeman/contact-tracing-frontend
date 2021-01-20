@@ -20,12 +20,14 @@ class App {
     }
 
     addContacts() {
-        //! Is there another way to clear innerHTML? ```Node.querySelectorAll('*').forEach(n => n.remove());```
-        document.querySelector('#contact-container').innerHTML = ``;
+        document.querySelector('#contact-container').innerHTML = ``; // ORIGINAL WITH <P>
         Contact.all.forEach(
-            //! appendChild: https://www.w3schools.com/jsref/met_node_appendchild.asp
             contact => (document.querySelector(`#contact-container`).innerHTML += contact.renderContactCard())
-        )
+            )   
+        //! Is there another way to clear innerHTML? ```Node.querySelectorAll('*').forEach(n => n.remove());```
+        //! appendChild: https://www.w3schools.com/jsref/met_node_appendchild.asp
+        // document.querySelectorAll('ul').forEach(n => n.remove());
+        
     }
  
     handleFormSubmit(e) {

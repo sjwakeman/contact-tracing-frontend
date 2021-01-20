@@ -20,17 +20,29 @@ class Contact {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
         debugger  
         //! Use JS contact container append child
-        return `
+        return ` 
           <div data-id=${this.id}>
-          <p><strong>${this.name}</strong></p>
-            <p>${this.date}</p>
-            <p>${this.category}</p>
-            <p>${this.location}</p>
-            <p>${this.occurrence}</p>
-            <p>${this.individual.name}</p>
+          <ul><label><strong>Name: </strong></label>${this.name}</ul>
+            <ul><label><strong>Date: </strong></label>${this.date}</ul>
+            <ul><label><strong>Category: </strong></label>${this.category}</ul>
+            <ul><label><strong>Location: </strong></label>${this.location}</ul>
+            <ul><label><strong>Occurrence: </strong></label>${this.occurrence}</ul>
+            <ul><label><strong>Individual Name: </strong></label>${this.individual.name}</ul>
             <button data-id=${this.id}>EDIT</button>
           </div>
           <br><br>`;
+
+        // return ` // ORIGINAL
+        //   <div data-id=${this.id}>
+        //   <p><strong>${this.name}</strong></p>
+        //     <p>${this.date}</p>
+        //     <p>${this.category}</p>
+        //     <p>${this.location}</p>
+        //     <p>${this.occurrence}</p>
+        //     <p>${this.individual.name}</p>
+        //     <button data-id=${this.id}>EDIT</button>
+        //   </div>
+        //   <br><br>`;
     }
 
     static findById(id) {
@@ -42,47 +54,81 @@ class Contact {
     updateContactCard() {
       return `
       <form data-id=${this.id}>
-        <label>Name</label>
-        <p>
+        
+      <ul> <label><strong>Name: </strong></label>
           <input id='update-name' type="text" value="${this.name}" />
-        </p>
-        <label>Date</label>
-        <p>
+        </ul>
+        
+        <ul> <label><strong>Date: </strong></label>
           <input id='update-date' type="text" value="${this.date}" />
-        </p>
-        <label>Category</label>
-        <p>
+        </ul>
+        
+        <ul> <label><strong>Category: </strong></label>
           <input id='update-category' type="text" value="${this.category}" />
-        </p>
-        <label>Location</label>
-        <p>
+        </ul>
+        
+        <ul> <label><strong>Location: </strong></label>
           <input id='update-location' type="text" value="${this.location}" />
-        </p>
-        <label>Occurrence</label>
-        <p>
+        </ul>
+        
+        <ul> <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
-        </p>
-        <label>Individual Name</label>
-        <p>
+        </ul>
+        
+        <ul> <label><strong>Individual Name: </strong></label>
         <select id="individuals" />
         <option value="1">individual one</option>
         <option value="2">individual two</option>
         <option value="3">individual three</option>
       </select>
-        </p>
+        </ul>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
+
+      // return ` // ORIGINAL
+      // <form data-id=${this.id}>
+      //   <label>Name</label>
+      //   <p>
+      //     <input id='update-name' type="text" value="${this.name}" />
+      //   </p>
+      //   <label>Date</label>
+      //   <p>
+      //     <input id='update-date' type="text" value="${this.date}" />
+      //   </p>
+      //   <label>Category</label>
+      //   <p>
+      //     <input id='update-category' type="text" value="${this.category}" />
+      //   </p>
+      //   <label>Location</label>
+      //   <p>
+      //     <input id='update-location' type="text" value="${this.location}" />
+      //   </p>
+      //   <label>Occurrence</label>
+      //   <p>
+      //     <input id='update-occurrence' type="text" value="${this.occurrence}" />
+      //   </p>
+      //   <label>Individual Name</label>
+      //   <p>
+      //   <select id="individuals" />
+      //   <option value="1">individual one</option>
+      //   <option value="2">individual two</option>
+      //   <option value="3">individual three</option>
+      // </select>
+      //   </p>
+      //   <button type="submit" data-id=${this.id}>Save Contact</button>
+      // </form>
+      // `;
     }
 
-    update({name, date, category, location, occurrence, individual_name}) {  // ADDED UPDATE CONTACT
+    update({name, date, category, location, occurrence, individual}) {  // ADDED UPDATE CONTACT
       // debugger
       this.name = name;                                     // ADDED UPDATE CONTACT
       this.date = date;                                     // ADDED UPDATE CONTACT
       this.category = category;                             // ADDED UPDATE CONTACT
       this.location = location;                             // ADDED UPDATE CONTACT
       this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
-      this.individual_name = individual_name;               // UPDATING INDIVIDUAL NAME
+      this.individual = individual;               // UPDATING INDIVIDUAL NAME
     }
 }
 // Contact is an object we give a .all key and assign to an empty array
