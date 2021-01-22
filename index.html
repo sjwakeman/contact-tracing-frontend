@@ -6,6 +6,7 @@
     <title>Contact Tracing</title>
     
     <script defer type="text/javascript" src="src/contact.js"></script>
+    <script defer type="text/javascript" src="src/individual.js"></script>
     
     <script type="application/javascript" src="src/adapter.js"></script>
     <script type="application/javascript" src="src/app.js"></script>
@@ -30,18 +31,63 @@
           <input id='input-occurrence' type="text" name="occurrence" value="" placeholder="Enter contact occurrence..." class="input-text">
           <br><br>
 
-          <p><strong>Choose an Individual</strong></p>
+          <div class="individuals">
+            <select name="individuals" id="individuals">
+              <option value="" selected="selected">Choose an Individual</option>
+            </select>
+            <br><br>
+            <input id= 'create-button' type="submit" name="submit" value="Create New Contact" class="submit">
+          </div>
+
+          <script>
+          let individualObject = {
+
+            // "${this.individual.name}"
+            // individuals.all
+            // "${this}"
+            // "${this.individual}"
+
+            "Front-end": {
+                "HTML": ["Links", "Images", "Tables", "Lists"],
+                "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+                "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+              },
+              "Back-end": {
+                "PHP": ["Variables", "Strings", "Arrays"],
+                "SQL": ["SELECT", "UPDATE", "DELETE"]
+              }
+            }
+            window.onload = function() {
+                var individualSel = document.getElementById("individuals");
+                for (let x in individualObject) {
+                    individualSel.options[individualSel.options.length] = new Option(x, x);
+                }
+                // MAY NOT NEED THIS
+                // subjectSel.onchange = function() {
+                //     //empty Individuals- dropdowns
+                //     individualSel.length = 1;
+                //     //display correct values
+                //     for (let x in subjectObject[this.value]) {
+                //         individualSel.options[individualSel.options.length] = new Option(x, x);
+                //     }
+                // }
+            }
+          </script>
+
+          <!-- ORIGINAL -->
+          <!-- <p><strong>Choose an Individual: </strong>
           <select id="individuals" name="individuals">
-             <!-- MAKE DYNAMIC -->
+              MAKE DYNAMIC 
             <option value="1">individual one</option>
             <option value="2">individual two</option>
             <option value="3">individual three</option>
           </select>
-          <br><br>
+          </p> -->
+          <!-- <br><br>
       
           <input id= 'create-button' type="submit" name="submit" value="Create New Contact" class="submit">
           <br><br>
-          <br><br>
+          <br><br> -->
         </form>
       
       </div>
@@ -49,6 +95,7 @@
       
     <div id="contact-container"></div>
     <div id="update"></div>
+
 
 
 </body>

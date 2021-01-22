@@ -22,12 +22,12 @@ class Contact {
         //! Use JS contact container append child
         return ` 
           <div data-id=${this.id}>
-          <ul><label><strong>Name: </strong></label>${this.name}</ul>
-            <ul><label><strong>Date: </strong></label>${this.date}</ul>
-            <ul><label><strong>Category: </strong></label>${this.category}</ul>
-            <ul><label><strong>Location: </strong></label>${this.location}</ul>
-            <ul><label><strong>Occurrence: </strong></label>${this.occurrence}</ul>
-            <ul><label><strong>Individual Name: </strong></label>${this.individual.name}</ul>
+            <label><strong>Name: </strong></label>${this.name}<br><br>
+            <label><strong>Date: </strong></label>${this.date}<br><br>
+            <label><strong>Category: </strong></label>${this.category}<br><br>
+            <label><strong>Location: </strong></label>${this.location}<br><br>
+            <label><strong>Occurrence: </strong></label>${this.occurrence}<br><br>
+            <label><strong>Individual Name: </strong></label>${this.individual.name}<br><br>
             <button data-id=${this.id}>EDIT</button>
           </div>
           <br><br>`;
@@ -55,33 +55,32 @@ class Contact {
       return `
       <form data-id=${this.id}>
         
-      <ul> <label><strong>Name: </strong></label>
+        <label><strong>Name: </strong></label>
           <input id='update-name' type="text" value="${this.name}" />
-        </ul>
-        
-        <ul> <label><strong>Date: </strong></label>
+        <br><br>
+        <label><strong>Date: </strong></label>
           <input id='update-date' type="text" value="${this.date}" />
-        </ul>
+          <br><br>
         
-        <ul> <label><strong>Category: </strong></label>
+        <label><strong>Category: </strong></label>
           <input id='update-category' type="text" value="${this.category}" />
-        </ul>
+          <br><br>
         
-        <ul> <label><strong>Location: </strong></label>
+        <label><strong>Location: </strong></label>
           <input id='update-location' type="text" value="${this.location}" />
-        </ul>
+          <br><br>
         
-        <ul> <label><strong>Occurrence: </strong></label>
+        <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
-        </ul>
+          <br><br>
         
-        <ul> <label><strong>Individual Name: </strong></label>
+        <label><strong>Individual Name: </strong></label>
         <select id="individuals" />
         <option value="1">individual one</option>
         <option value="2">individual two</option>
         <option value="3">individual three</option>
       </select>
-        </ul>
+      <br><br>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
