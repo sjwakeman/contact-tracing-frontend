@@ -18,7 +18,7 @@ class Contact {
 
     renderContactCard() {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
-        debugger  
+        // debugger  
         //! Use JS contact container append child
         return ` 
           <div data-id=${this.id}>
