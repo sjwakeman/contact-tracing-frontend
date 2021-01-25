@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ADAPTER REFACTOR ADD
   app.adapter.fetchContacts().then(app.createContacts) // NEED TO ADD CREATE CONTACTS TO APP.JS
 
+  app.adapter.fetchContacts().then(app.createIndividuals) 
 
-    var individualSel = document.getElementById("individuals");
-    // fetch 
-    for (let x in individualObject) {
-        individualSel.options[individualSel.options.length] = new Option(x, x);
-    }
+    // var individualSel = document.getElementById("individuals");
+    // // fetch 
+    // for (let x in individualObject) {
+    //     individualSel.options[individualSel.options.length] = new Option(x, x);
+    // }
+
   // Adapter to render Contact Card
   // debugger
   // app.adapter.fetchContacts().then(json => { // END GOAL                          // ADAPTER REFACTOR REMOVED
