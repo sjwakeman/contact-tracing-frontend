@@ -14,9 +14,16 @@ class App {
     // The previous functionality is broken up into two different methods for future reuse
     createContacts(contacts) {
         contacts.data.forEach(contact => { // ORIGINAL
-            new Contact(contact, contact.attributes); // OPTION ONE
+            new Contact(contact, contact.attributes); 
         });
         this.addContacts();
+    }
+
+    createIndividuals(individuals) {
+        individuals.data.forEach(individual => {
+            new Individual(individual, individual.attributes)
+        });
+        this.addIndividuals();
     }
 
     addContacts() {
@@ -28,6 +35,13 @@ class App {
         //! appendChild: https://www.w3schools.com/jsref/met_node_appendchild.asp
         // document.querySelectorAll('ul').forEach(n => n.remove());
         
+    }
+
+    addIndividuals() {
+        document.querySelector('#contact-container').innerHTML += ``;
+        Individual.all.forEach(
+            individual => (document.querySelector(`#contact-container`).innerHTML += individual.renderIndividualCard())
+        )
     }
  
     handleFormSubmit(e) {
