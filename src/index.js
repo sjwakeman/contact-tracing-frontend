@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ADAPTER REFACTOR ADD
   app.adapter.fetchContacts().then(app.createContacts) // NEED TO ADD CREATE CONTACTS TO APP.JS
 
-  app.adapter.fetchContacts().then(app.createIndividuals) 
+  app.adapter.fetchIndividuals().then(app.createIndividuals) 
 
     // var individualSel = document.getElementById("individuals");
     // // fetch 
