@@ -40,23 +40,29 @@
           </div>
 
           <script>
-          let individualObject = {
-
-            // "${this.individual.name}"
+          // let individualObject = this.individual.data.attributes.name
+          let individualObject = {  
+            
+            // ${this.individual.name}
             // individuals.all
             // "${this}"
             // "${this.individual}"
 
-            "Front-end": {
-                "HTML": ["Links", "Images", "Tables", "Lists"],
-                "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-                "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
-              },
-              "Back-end": {
-                "PHP": ["Variables", "Strings", "Arrays"],
-                "SQL": ["SELECT", "UPDATE", "DELETE"]
-              }
-            }
+            // "Individuals": {
+
+            }  
+ 
+            // "Front-end": {
+            //     "HTML": ["Links", "Images", "Tables", "Lists"],
+            //     "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+            //     "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+            //   },
+            //   "Back-end": {
+            //     "PHP": ["Variables", "Strings", "Arrays"],
+            //     "SQL": ["SELECT", "UPDATE", "DELETE"]
+            //   }
+            // }
+
             window.onload = function() {
                 var individualSel = document.getElementById("individuals");
                 for (let x in individualObject) {

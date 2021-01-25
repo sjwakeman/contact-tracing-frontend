@@ -32,6 +32,13 @@ class Adapter {
         return this.patch(`${this.baseUrl}/contacts/${id}`, jsonBody)
     }
 
+    fetchIndividuals() {
+        return this.get(`${this.baseUrl}/individuals`);  
+    }
+
+    updateIndividualCard(id, jsonBody) {
+        return this.patch(`${this.baseUrl}/individuals/${id}`, jsonBody)
+    }
     get(url) {
         // console.log(url, "url") // adapter.js:33 http://localhost:3000/api/v1/contacts url
         // console.log(fetch(url).then(res => res.json()), "fetch(url).then(res => res.json())")
