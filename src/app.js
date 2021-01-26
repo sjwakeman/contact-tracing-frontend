@@ -16,14 +16,34 @@ class App {
         contacts.data.forEach(contact => { // ORIGINAL
             new Contact(contact, contact.attributes); 
         });
+        console.log(this, "this createContacts")
+        // app.js:19 App {adapter: Adapter, handleEditClick: ƒ, handleFormSubmit: ƒ, createContacts: ƒ, addContacts: ƒ} "this createContacts
         this.addContacts();
     }
 
     createIndividuals(individuals) {
+        // console.log(individuals, "individuals") // app.js:23 {data: Array(3)} "individuals"
         individuals.data.forEach(individual => {
+            // console.log(individual, "individual") 
+            //     {id: "1", type: "individual", attributes: {…}, relationships: {…}} "individual"
+            //     {id: "2", type: "individual", attributes: {…}, relationships: {…}} "individual"
+            //     {id: "3", type: "individual", attributes: {…}, relationships: {…}} "individual"
+
             new Individual(individual, individual.attributes)
+            // console.log(individual, "individual")
+            // app.js:31 {id: "1", type: "individual", attributes: {…}, relationships: {…}} "individual"
+            // app.js:31 {id: "2", type: "individual", attributes: {…}, relationships: {…}} "individual"
+            // app.js:31 {id: "3", type: "individual", attributes: {…}, relationships: {…}} "individual"
+            // console.log(individual.attributes, "individual.attributes")
+            // app.js:35 {name: "individual one"} "individual.attributes"
+            // app.js:35 {name: "individual two"} "individual.attributes"
+            // app.js:35 {name: "individual three"} "individual.attributes"
         });
+
+        console.log(this, "this") // console.log(this, "this")  ISSUE app.js:43 undefined "this
         this.addIndividuals();
+        console.log(this, "this") // NOT HIT
+        
     }
 
     addContacts() {
@@ -74,13 +94,22 @@ class App {
             // debugger
             contact.update(updatedContact.data.attributes);                                     // ADDED UPDATE CONTACT
             this.addContacts()                                                  // ADDED UPDATE CONTACT
-        });         
+        });   
+        // UPDATE INDIVIDUAL
+        this.adapter.updateIndividualCard(id, jsonBody).then(updatedIndividual => {   // ADDED UPDATE CONTACT
+        // debugger
+            const individual = Individual.findById(updatedIndividual.data.id);                // ADDED UPDATE CONTACT
+            individual.update(updatedIndividual.data.attributes);                                     // ADDED UPDATE CONTACT
+            this.addIndividuals()                                                  // ADDED UPDATE CONTACT
+        });   
     }
  
     handleEditClick(e) {
         const id = e.target.dataset.id;  
         const contact = Contact.findById(id); 
+        const individual = Individual.findById(id);
         document.querySelector(`#update`).innerHTML = contact.updateContactCard();
+        document.querySelector(`#update`).innerHTML = individual.updateIndividualCard();
     }
 }
 

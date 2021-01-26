@@ -2,7 +2,7 @@
 class Individual {
     constructor(individual, individualAttributes) {
         this.id = individual.id;   // Top level
-        debugger
+        // debugger
         
         this.name = individualAttributes.name;
         this.contact = individualAttributes.contact // MAY NOT NEED THIS FEATURE
@@ -13,7 +13,7 @@ class Individual {
 
     renderIndividualCard() {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
-        debugger  
+        // debugger  
         //! Use JS contact container append child
 
         // MAY NOT NEED LINE 23 IFF ONLY NEED NAME ATTRIBUTE
