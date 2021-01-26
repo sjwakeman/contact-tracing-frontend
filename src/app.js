@@ -5,6 +5,8 @@ class App {
         this.handleFormSubmit = this.handleFormSubmit.bind(this);                            
         this.createContacts = this.createContacts.bind(this);                               
         this.addContacts = this.addContacts.bind(this);   
+        this.createIndividuals = this.createIndividuals.bind(this);
+        this.addIndividuals = this.addIndividuals.bind(this);
     }
     attachEventListeners() {
         document.querySelector(`#contact-container`).addEventListener("click", this.handleEditClick);
