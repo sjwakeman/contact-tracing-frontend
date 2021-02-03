@@ -10,6 +10,7 @@ class App {
     }
     attachEventListeners() {
         document.querySelector(`#contact-container`).addEventListener("click", this.handleEditClick);
+        document.querySelector(`#individual-container`).addEventListener("click", this.handleEditClick);
         document.querySelector(`#update`).addEventListener('submit', this.handleFormSubmit); 
     }
 
@@ -18,12 +19,13 @@ class App {
         contacts.data.forEach(contact => { // ORIGINAL
             new Contact(contact, contact.attributes); 
         });
-        console.log(this, "this createContacts")
+        // console.log(this, "this createContacts")
         // app.js:19 App {adapter: Adapter, handleEditClick: ƒ, handleFormSubmit: ƒ, createContacts: ƒ, addContacts: ƒ} "this createContacts
         this.addContacts();
     }
 
     createIndividuals(individuals) {
+        console.log("Inside Fetch")
         // console.log(individuals, "individuals") // app.js:23 {data: Array(3)} "individuals"
         individuals.data.forEach(individual => {
             // console.log(individual, "individual") 
@@ -42,10 +44,11 @@ class App {
             // app.js:35 {name: "individual three"} "individual.attributes"
         });
 
-        console.log(this, "this") // console.log(this, "this")  ISSUE app.js:43 undefined "this
+        // console.log(this, "this") // WORKS AFTER BIND THIS WITH FUNCTION 
+        // app.js:46 App {adapter: Adapter, handleEditClick: ƒ, handleFormSubmit: ƒ, createContacts: ƒ, addContacts: ƒ, …} "this"
         this.addIndividuals();
-        console.log(this, "this") // NOT HIT
-        
+        // console.log(this, "this") // WORKS AFTER BIND THIS WITH FUNCTION
+        // app.js:49 App {adapter: Adapter, handleEditClick: ƒ, handleFormSubmit: ƒ, createContacts: ƒ, addContacts: ƒ, …} "this"
     }
 
     addContacts() {
@@ -57,14 +60,21 @@ class App {
         //! appendChild: https://www.w3schools.com/jsref/met_node_appendchild.asp
         // document.querySelectorAll('ul').forEach(n => n.remove());
         
-    }
+    } 
 
     addIndividuals() {
-        document.querySelector('#contact-container').innerHTML += ``;
+        document.querySelector('#individuals').innerHTML += ``;
+        // document.querySelector('#individual-container').innerHTML += ``;
+
+        // console.log(Individual.all, "Individual.all app.js file")
+        // app.js:67 (3) [Individual, Individual, Individual] "Individual.all app.js file"
         Individual.all.forEach(
-            individual => (document.querySelector(`#contact-container`).innerHTML += individual.renderIndividualCard())
+            individual => (document.querySelector(`#individuals`).innerHTML += individual.renderIndividualCard())
+            // individual => (document.querySelector(`#individual-container`).innerHTML += individual.renderIndividualCard())
+            // Displays all three individuals with EDIT button in individual-container area of index.html
         )
     }
+
  
     handleFormSubmit(e) {
         e.preventDefault();
@@ -98,20 +108,21 @@ class App {
             this.addContacts()                                                  // ADDED UPDATE CONTACT
         });   
         // UPDATE INDIVIDUAL
-        this.adapter.updateIndividualCard(id, jsonBody).then(updatedIndividual => {   // ADDED UPDATE CONTACT
+        this.adapter.updateIndividualCard(id, jsonBody).then(updatedIndividual => {   // ADDED UPDATE INDIVIDUAL
         // debugger
-            const individual = Individual.findById(updatedIndividual.data.id);                // ADDED UPDATE CONTACT
-            individual.update(updatedIndividual.data.attributes);                                     // ADDED UPDATE CONTACT
-            this.addIndividuals()                                                  // ADDED UPDATE CONTACT
+            const individual = Individual.findById(updatedIndividual.data.id);                // ADDED UPDATE INDIVIDUAL
+            individual.update(updatedIndividual.data.attributes);                                     // ADDED UPDATE INDIVIDUAL
+            this.addIndividuals()                                                  // ADDED UPDATE INDIVIDUAL
         });   
     }
  
     handleEditClick(e) {
         const id = e.target.dataset.id;  
         const contact = Contact.findById(id); 
-        const individual = Individual.findById(id);
+        // const individual = Individual.findById(id);
         document.querySelector(`#update`).innerHTML = contact.updateContactCard();
-        document.querySelector(`#update`).innerHTML = individual.updateIndividualCard();
+        // document.querySelector(`#update`).innerHTML = individual.updateIndividualCard();
+            // IF ACTIVATE 114 ONLY SEE INDIVIDUAL NOT CONTACT ATTRIBUTES DOES NOT COMBINE BOTH!
     }
 }
 

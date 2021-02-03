@@ -30,36 +30,43 @@
           <br><br>
           <input id='input-occurrence' type="text" name="occurrence" value="" placeholder="Enter contact occurrence..." class="input-text">
           <br><br>
+        </form>
+        
 
-          <div class="individuals">
-            <select name="individuals" id="individuals">
-              <option value="" selected="selected">Choose an Individual</option>
-            </select>
-            <br><br>
-            <input id= 'create-button' type="submit" name="submit" value="Create New Contact" class="submit">
-          </div>
-
-          <!-- ORIGINAL -->
-          <!-- <p><strong>Choose an Individual: </strong>
-          <select id="individuals" name="individuals">
-              MAKE DYNAMIC 
-            <option value="1">individual one</option>
-            <option value="2">individual two</option>
-            <option value="3">individual three</option>
-          </select>
-          </p> -->
-          <!-- <br><br>
       
-          <input id= 'create-button' type="submit" name="submit" value="Create New Contact" class="submit">
-          <br><br>
-          <br><br> -->
+
+    <div class="individuals">
+      <select name="individuals" id="individuals">
+        <option value="" selected="selected">Chosse an Individual</option> 
+          
+      </select>
+
+ 
+
+   
+          
+
+                <!-- <option value=\`${individual.id}`>Chosse an Individual </option>   -->
+                <!-- <option value={this.name} selected="">Choose an Individual</option> -->
+                <!-- Individual.all.forEach(individual) {
+                  `${individual.name}`
+                } -->
+              
+            
+      <br><br>
+      <input id= 'create-button' type="submit" name="submit" value="Create New Contact" class="submit">
+    </div>
+
         </form>
       
       </div>
       <p></p>
       
     <div id="contact-container"></div>
+    <div id="individual-container"></div> 
     <div id="update"></div>
+    <!-- <div id ="update-contact></div>" -->
+    <!--  <div id ="update-individual></div>"-->
 
 
 

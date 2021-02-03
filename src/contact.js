@@ -52,6 +52,9 @@ class Contact {
     }
 
     updateContactCard() {
+      // debugger
+      // console.log(individuals, "individuals")
+      console.log(Individual.all, "Individual.all - contact.js file")
       return `
       <form data-id=${this.id}>
         
@@ -73,13 +76,17 @@ class Contact {
         <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
           <br><br>
+
+ 
         
-        <label><strong>Individual Name: </strong></label>
-        <select id="individuals" />
-        <option value="1">individual one</option>
-        <option value="2">individual two</option>
-        <option value="3">individual three</option>
-      </select>
+        <select id="individuals">
+        
+          Individual.all.forEach(individual) {
+            <option value="#">"${this.individual.name}"</option>
+ 
+          }
+        </select>
+    
       <br><br>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
