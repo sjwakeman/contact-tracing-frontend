@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let app = new App();  
   app.attachEventListeners();
 
-  let test = () => {
-    console.log("Inside Test")
+  let individuals = () => {
+    // console.log("Inside individuals")
     Individual.all.forEach(individual => { // debugger
       let newOption = new Option(`${individual.name}`, `${individual.id}`)
         individualOptions.appendChild(newOption, undefined)
@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ADAPTER REFACTOR ADD
   app.adapter.fetchContacts().then(app.createContacts) // NEED TO ADD CREATE CONTACTS TO APP.JS
 
-  // ORDER OF OPERATIONS ISSUE HAD TO USE .THEN AND AN EMPTY FUNCTION TO CALL TEST TO WORK CORRECTLY
+  // ORDER OF OPERATIONS ISSUE HAD TO USE .THEN AND AN EMPTY FUNCTION TO CALL INDIVIDUALS TO WORK CORRECTLY
   // MAY NEED TO DO WITH CFEATEINDIVIDUALS AS WELL
-  app.adapter.fetchIndividuals().then(app.createIndividuals).then( () => test())// Fetch all individuals
+  app.adapter.fetchIndividuals().then(app.createIndividuals).then( () => individuals())// Fetch all individuals
 
   let individualOptions = document.getElementById("individuals"); // save individuals drop down element
   // console.log(individualOptions, "individualOptions")

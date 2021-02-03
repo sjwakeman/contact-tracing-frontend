@@ -25,7 +25,7 @@ class App {
     }
 
     createIndividuals(individuals) {
-        console.log("Inside Fetch")
+        // console.log("Inside Fetch")
         // console.log(individuals, "individuals") // app.js:23 {data: Array(3)} "individuals"
         individuals.data.forEach(individual => {
             // console.log(individual, "individual") 
