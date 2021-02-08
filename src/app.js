@@ -8,10 +8,12 @@ class App {
         this.createIndividuals = this.createIndividuals.bind(this);
         this.addIndividuals = this.addIndividuals.bind(this);
     }
+    
     attachEventListeners() {
         document.querySelector(`#contact-container`).addEventListener("click", this.handleEditClick);
-        document.querySelector(`#individual-container`).addEventListener("click", this.handleEditClick);
         document.querySelector(`#update`).addEventListener('submit', this.handleFormSubmit); 
+        // document.querySelector(`#individuals`).addEventListener("click", this.handleEditClick); 
+        // TIED TO INDIVIDUAL DROP DOWN DONT NEED!
     }
 
     // The previous functionality is broken up into two different methods for future reuse
@@ -81,14 +83,7 @@ class App {
         const id = e.target.dataset.id;  
         // const contact = Contact.findById(id); //COMMENTED OUT DOUBLE ID   // ORIGINAL UPDATE CONTACT ISSUE TWO CONST CONTACT SET?
         // let contact = Contact.findById(id);          // ADDED UPDATE CONTACT ? TWO CONTACT ??
-        
-        // ORIGINAL
-        // const name = contact.name; 
-        // const date = contact.date;  
-        // const category = contact.category; 
-        // const location = contact.location; 
-        // const occurrence = contact.occurrence;
-        // const individual_name = contact.individual_id; 
+
         // debugger
         // TARGET FORM VALUES
         const name = e.target.querySelector('#update-name').value;

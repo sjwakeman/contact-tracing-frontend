@@ -76,14 +76,10 @@ class Contact {
         <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
           <br><br>
-
- 
         
-        <select id="individuals">
-        
+        <select id="individuals">       
           Individual.all.forEach(individual) {
             <option value="#">"${this.individual.name}"</option>
- 
           }
         </select>
     

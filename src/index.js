@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let app = new App();  
   app.attachEventListeners();
 
+  // Load individuals for Contact Form
   let individuals = () => {
     // console.log("Inside individuals")
     Individual.all.forEach(individual => { // debugger
@@ -23,6 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // `)
       })
   }
+  
+  // // Load contact for Contact Form
+  // let contact = () => {
+  //   console.log("Inside contact") // NOT HIT AFTER CLICKING DROP DOWN MENU FOR CHOOSE AN INDIVIDUAL
+  //   contact.all.forEach(contact=> {
+  //     let newOption =  new Option(`${contact.name}`, `${contact.id}`)
+  //       contactOptions.appendChild(newOption, undefined)
+  //   })
+  // }
+
+
 
   // ADAPTER REFACTOR ADD
   app.adapter.fetchContacts().then(app.createContacts) // NEED TO ADD CREATE CONTACTS TO APP.JS

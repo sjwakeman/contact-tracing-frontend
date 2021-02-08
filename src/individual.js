@@ -55,12 +55,12 @@ class Individual {
         <label><strong>Name: </strong></label>
           <input id='update-name' type="text" value="${this.name}" />
         <br><br>
-        
+
         <label><strong>Contact Name: INDIVIDUAL.JS FILE</strong></label>
-        <select id="contacts" />
-        <option value="1">contact one</option>
-        <option value="2">contact two</option>
-        <option value="3">contact three</option>
+        <select id="individuals">       
+        Individual.all.forEach(individual) {
+          <option value="#">"${this.individual.name}"</option>
+        }
       </select>
       <br><br>
         <button type="submit" data-id=${this.id}>Save Individual</button>
