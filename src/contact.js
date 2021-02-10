@@ -19,14 +19,15 @@ class Contact {
     renderContactCard() {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object   
         // debugger  
-        return `
+        //! Use JS contact container append child
+        return ` 
           <div data-id=${this.id}>
-          <p><strong>${this.name}</strong></p>
-            <p>${this.date}</p>
-            <p>${this.category}</p>
-            <p>${this.location}</p>
-            <p>${this.occurrence}</p>
-            <p>${this.individual.name}</p>
+            <label><strong>Name: </strong></label>${this.name}<br><br>
+            <label><strong>Date: </strong></label>${this.date}<br><br>
+            <label><strong>Category: </strong></label>${this.category}<br><br>
+            <label><strong>Location: </strong></label>${this.location}<br><br>
+            <label><strong>Occurrence: </strong></label>${this.occurrence}<br><br>
+            <label><strong>Individual Name: </strong></label>${this.individual.name}<br><br>
             <button data-id=${this.id}>EDIT</button>
           </div>
           <br><br>`;
@@ -39,44 +40,52 @@ class Contact {
     }
 
     updateContactCard() {
+      // debugger
+      // console.log(individuals, "individuals")
+
       return `
       <form data-id=${this.id}>
-        <label>Name</label>
-        <p>
+        
+        <label><strong>Name: </strong></label>
           <input id='update-name' type="text" value="${this.name}" />
-        </p>
-        <label>Date</label>
-        <p>
+        <br><br>
+        <label><strong>Date: </strong></label>
           <input id='update-date' type="text" value="${this.date}" />
-        </p>
-        <label>Category</label>
-        <p>
+          <br><br>
+        
+        <label><strong>Category: </strong></label>
           <input id='update-category' type="text" value="${this.category}" />
-        </p>
-        <label>Location</label>
-        <p>
+          <br><br>
+        
+        <label><strong>Location: </strong></label>
           <input id='update-location' type="text" value="${this.location}" />
-        </p>
-        <label>Occurrence</label>
-        <p>
+          <br><br>
+        
+        <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
-        </p>
-        <label>Individual Name</label>
-        <p>
-          <input id='update-individual' type="text" value="${this.individual.name}" />
-        </p>
+          <br><br>
+
+        <select name="individuals" id="individuals">       
+          ${Individual.all.map(individual => {
+            return `<option value="${individual.id}">"${individual.name}"</option> `
+          })
+          }
+        </select>
+   
+      <br><br>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
     }
 
-    update({name, date, category, location, occurrence}) {  // ADDED UPDATE CONTACT
+    update({name, date, category, location, occurrence, individual}) {  // ADDED UPDATE CONTACT
       // debugger
       this.name = name;                                     // ADDED UPDATE CONTACT
       this.date = date;                                     // ADDED UPDATE CONTACT
       this.category = category;                             // ADDED UPDATE CONTACT
       this.location = location;                             // ADDED UPDATE CONTACT
       this.occurrence = occurrence;                         // ADDED UPDATE CONTACT
+      this.individual = individual;               // UPDATING INDIVIDUAL NAME
     }
 }
 // Contact is an object we give a .all key and assign to an empty array
