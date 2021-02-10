@@ -16,13 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load individuals for Contact Form
   let individuals = () => {
     // console.log("Inside individuals")
-    Individual.all.forEach(individual => { // debugger
+    Individual.all.forEach(individual => { 
       let newOption = new Option(`${individual.name}`, `${individual.id}`)
         individualOptions.appendChild(newOption, undefined)
-        // individualOptions.append(`
-        //   <option value="${inidividual.id}" selected="selected">${individual.name}</option> 
-        // `)
-      })
+     })
   }
   
   // // Load contact for Contact Form

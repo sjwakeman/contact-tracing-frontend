@@ -31,18 +31,6 @@ class Contact {
             <button data-id=${this.id}>EDIT</button>
           </div>
           <br><br>`;
-
-        // return ` // ORIGINAL
-        //   <div data-id=${this.id}>
-        //   <p><strong>${this.name}</strong></p>
-        //     <p>${this.date}</p>
-        //     <p>${this.category}</p>
-        //     <p>${this.location}</p>
-        //     <p>${this.occurrence}</p>
-        //     <p>${this.individual.name}</p>
-        //     <button data-id=${this.id}>EDIT</button>
-        //   </div>
-        //   <br><br>`;
     }
 
     static findById(id) {
@@ -54,7 +42,7 @@ class Contact {
     updateContactCard() {
       // debugger
       // console.log(individuals, "individuals")
-      console.log(Individual.all, "Individual.all - contact.js file")
+
       return `
       <form data-id=${this.id}>
         
@@ -76,51 +64,18 @@ class Contact {
         <label><strong>Occurrence: </strong></label>
           <input id='update-occurrence' type="text" value="${this.occurrence}" />
           <br><br>
-        
-        <select id="individuals">       
-          Individual.all.forEach(individual) {
-            <option value="#">"${this.individual.name}"</option>
+
+        <select name="individuals" id="individuals">       
+          ${Individual.all.map(individual => {
+            return `<option value="${individual.id}">"${individual.name}"</option> `
+          })
           }
         </select>
-    
+   
       <br><br>
         <button type="submit" data-id=${this.id}>Save Contact</button>
       </form>
       `;
-
-      // return ` // ORIGINAL
-      // <form data-id=${this.id}>
-      //   <label>Name</label>
-      //   <p>
-      //     <input id='update-name' type="text" value="${this.name}" />
-      //   </p>
-      //   <label>Date</label>
-      //   <p>
-      //     <input id='update-date' type="text" value="${this.date}" />
-      //   </p>
-      //   <label>Category</label>
-      //   <p>
-      //     <input id='update-category' type="text" value="${this.category}" />
-      //   </p>
-      //   <label>Location</label>
-      //   <p>
-      //     <input id='update-location' type="text" value="${this.location}" />
-      //   </p>
-      //   <label>Occurrence</label>
-      //   <p>
-      //     <input id='update-occurrence' type="text" value="${this.occurrence}" />
-      //   </p>
-      //   <label>Individual Name</label>
-      //   <p>
-      //   <select id="individuals" />
-      //   <option value="1">individual one</option>
-      //   <option value="2">individual two</option>
-      //   <option value="3">individual three</option>
-      // </select>
-      //   </p>
-      //   <button type="submit" data-id=${this.id}>Save Contact</button>
-      // </form>
-      // `;
     }
 
     update({name, date, category, location, occurrence, individual}) {  // ADDED UPDATE CONTACT
