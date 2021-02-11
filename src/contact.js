@@ -29,6 +29,7 @@ class Contact {
             <label><strong>Occurrence: </strong></label>${this.occurrence}<br><br>
             <label><strong>Individual Name: </strong></label>${this.individual.name}<br><br>
             <button data-id=${this.id}>EDIT</button>
+            <hr>
           </div>
           <br><br>`;
     }
@@ -74,6 +75,7 @@ class Contact {
    
       <br><br>
         <button type="submit" data-id=${this.id}>Save Contact</button>
+      <hr>
       </form>
       `;
     }
