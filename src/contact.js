@@ -10,7 +10,8 @@ class Contact {
         this.category = contactAttributes.category;
         this.location = contactAttributes.location;
         this.occurrence = contactAttributes.occurrence;
-        this.individual = contactAttributes.individual
+        this.individual = contactAttributes.individual;
+        // this.individualName = contactAttributes.individual;
         // Push all instances of this into an empty array
         Contact.all.push(this);
         // debugger
@@ -28,6 +29,7 @@ class Contact {
             <label><strong>Location: </strong></label>${this.location}<br><br>
             <label><strong>Occurrence: </strong></label>${this.occurrence}<br><br>
             <label><strong>Individual Name: </strong></label>${this.individual.name}<br><br>
+          
             <button data-id=${this.id}>EDIT</button>
           </div>
           <p></p>

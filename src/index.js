@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         individualOptions.appendChild(newOption, undefined)
      })
   }
+
+  // let individual  = () => {
+  //   console.log("Inside individual")
+  //   let newOption = new Option(`${individual.name}`, `${individual.id}`)
+
+  // }
   
   // // Load contact for Contact Form
   // let contact = () => {
@@ -36,11 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // ADAPTER REFACTOR ADD
   app.adapter.fetchContacts().then(app.createContacts) // NEED TO ADD CREATE CONTACTS TO APP.JS
 
+  app.adapter.fetchIndividuals().then(app.createIndividuals)
+
   // ORDER OF OPERATIONS ISSUE HAD TO USE .THEN AND AN EMPTY FUNCTION TO CALL INDIVIDUALS TO WORK CORRECTLY
   // MAY NEED TO DO WITH CFEATEINDIVIDUALS AS WELL
   app.adapter.fetchIndividuals().then(app.createIndividuals).then( () => individuals())// Fetch all individuals
 
   let individualOptions = document.getElementById("individuals"); // save individuals drop down element
-  // console.log(individualOptions, "individualOptions")
-  // index.js:29 <select name=​"individuals" id=​"individuals">​…​</select>​ "individualOptions"
+  let individualText = document.getElementById("input-individual-name");
+  // console.log(individualText.value, "individualText.value") // JUST DISPLAYS individualText
+  individualOptions.onchange = function(){
+    if(!individualText.value)
+      individualText.value = this.value
+      // individualText.value = this.individual
+    else 
+      individualText.value = individualText.value + '\n' + this.value;
+      // individualText.value = individualText.value + '\n' + this.individual;
+  }
 }) 

@@ -4,27 +4,20 @@ class Adapter {
         this.headers = { // FUTURE REFACTOR ADDED
             'Content-Type': 'application/json', // FUTURE REFACTOR                          // ADAPTER REFACTOR ADDED
             Accept: 'application/json' // FUTURE REFACTOR                                   // ADAPTER REFACTOR ADDED
-        } // FUTURE REFACTOR ADDED
+        } // 
     }
+
     fetchContacts() {
         // return fetch(`${this.baseUrl}/contacts`).then(res => res.json());                    // ADAPTER REFACTOR REMOVED
         return this.get(`${this.baseUrl}/contacts`);                                        // ADAPTER REFACTOR ADDED
     }
+
     updateContactCard(id, jsonBody) { 
-        // console.log(id,  "id-ADAPTER.JS FILE") // NOT HIT
-        // debugger
-        // return fetch(`${this.baseUrl}/contacts/${contact.id}`, { 
-        // return fetch(`${this.baseUrl}/contacts/${id}`, {  // ORIGINAL                       // ADAPTER REFACTOR REMOVED
-        //     method: "PATCH",                                                                // ADAPTER REFACTOR REMOVED
-        //     headers:  {                                                                     // ADAPTER REFACTOR REMOVED
-        //         'Content-Type': 'application/json',                                         // ADAPTER REFACTOR REMOVED
-        //         Accept: 'application/json',                                                 // ADAPTER REFACTOR REMOVED
-        //     },                                                                              // ADAPTER REFACTOR REMOVED
-        //     body: JSON.stringify({contact:jsonBody}), // CORRECTED CHANGED FROM bodyJSON TO jsonBody    // ADAPTER REFACTOR REMOVED
-        // }).then(res => res.json());                                                         // ADAPTER REFACTOR REMOVED
-    
+        // debugger // jsonBody DISPLAYS NEW CONTACT ATTRIBUTES
+        
     // ADAPTER REFACTOR ADDED BELOW
         return this.patch(`${this.baseUrl}/contacts/${id}`, jsonBody)
+        debugger // NOT HIT
     }
 
     fetchIndividuals() {
